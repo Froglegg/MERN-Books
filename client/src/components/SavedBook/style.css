@@ -1,3 +1,9 @@
+.bookItem {
+  display: flex;
+  flex-direction: column;
+  border-top: 2px solid black;
+  margin: 15px;
+}
 .bookImage {
   max-height: 200px;
   width: auto;

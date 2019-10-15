@@ -1,0 +1,11 @@
+.footerWrapper {
+  display: grid;
+  grid-row: footer;
+  grid-column: span 12;
+  background: black;
+}
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,8 @@
+.searchedBookWrapper {
+  display: grid;
+  grid-column: searchedBooks;
+  grid-row: body;
+}
+.searchedBookWrapper h2 {
+  text-align: center;
+}

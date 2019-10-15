@@ -1,0 +1,10 @@
+.leftGutter {
+  display: grid;
+  grid-row: body;
+  grid-column: leftGutter;
+}
+.rightGutter {
+  display: grid;
+  grid-row: body;
+  grid-column: rightGutter;
+}

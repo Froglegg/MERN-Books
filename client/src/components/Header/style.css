@@ -1,0 +1,11 @@
+.headerWrapper {
+  display: grid;
+  grid-column: span 12;
+  grid-row: header;
+  background: blue;
+}
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

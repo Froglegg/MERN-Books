@@ -1,0 +1,8 @@
+.savedBookWrapper {
+  display: grid;
+  grid-column: savedBooks;
+  grid-row: body;
+}
+.savedBookWrapper h2 {
+  text-align: center;
+}

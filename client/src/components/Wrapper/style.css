@@ -1,16 +1,7 @@
 .wrapper {
-  height: auto;
+  min-height: 100vh;
   background-color: #bbbbbb;
-}
-
-@media screen and (min-width: 200px) {
-  .wrapper {
-    /* grid-template-rows: 1fr; */
-  }
-}
-
-@media screen and (min-width: 400px) {
-  .wrapper {
-    /* grid-template-rows: 1fr 4fr 1fr; */
-  }
+  display: grid;
+  grid-template-columns: [leftGutter] 1fr [searchedBooks] 5fr [savedBooks] 5fr [rightGutter] 1fr;
+  grid-template-rows: [header] 150px [body] 1fr [footer] 100px;
 }

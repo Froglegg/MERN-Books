@@ -1,0 +1,10 @@
+.input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.submitButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

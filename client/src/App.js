@@ -1,13 +1,16 @@
 import React from "react";
 import Books from "./pages/Books";
-import Nav from "./components/Nav";
 import Wrapper from "./components/Wrapper";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import "./normalize.css";
 
 function App() {
   return (
     <Wrapper>
-      <Nav />
+      <Header />
       <Books />
+      <Footer />
     </Wrapper>
   );
 }
