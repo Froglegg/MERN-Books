@@ -1,10 +1,59 @@
 .bookItem {
   display: flex;
   flex-direction: column;
-  border-top: 2px solid black;
   margin: 15px;
 }
 .bookImage {
   max-height: 200px;
   width: auto;
+  border: 1px solid #3c3a33;
+}
+
+.title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 22px;
+  color: #1e1d1a;
+}
+
+.author {
+  font-family: "Spectral", serif;
+  font-style: italic;
+  font-weight: 200;
+  font-size: 16px;
+  color: #3c3a33;
+}
+
+.description {
+  font-family: "Spectral", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.1em;
+  color: #1e1d1a;
+}
+.buttonDelete {
+  width: 25%;
+}
+
+.buttonDelete {
+  width: 25%;
+  padding: 4px;
+  border-radius: 4px;
+  color: #17252a;
+  border: 1px solid #262636;
+  background-color: #efe9cc;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.15s ease-in-out;
+  font-family: "Spectral", sans-serif;
+  font-size: 16px;
+  letter-spacing: 1px;
+  line-height: 1.1;
+  margin: 5px 10px 5px 10px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.buttonDelete:hover {
+  color: black;
+  background-color: #efcce4;
 }

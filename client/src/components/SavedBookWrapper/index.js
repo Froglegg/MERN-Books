@@ -4,10 +4,9 @@ import "./style.css";
 
 function SavedBookWrapper(props) {
   return (
-    <div className="savedBookWrapper">
-      <h2>Saved Books</h2>
-      {props.children}
-    </div>
+    <>
+      <div className="savedBookWrapper"> {props.children}</div>
+    </>
   );
 }
 

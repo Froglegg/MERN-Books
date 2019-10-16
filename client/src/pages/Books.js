@@ -59,27 +59,27 @@ class Books extends Component {
         <LeftGutter />
         <SearchedBookWrapper>
           <FormWrapper>
-            <form>
+            <form style={{ display: "flex", flexDirection: "column" }}>
               <Input
                 name="searchTitle"
                 placeholder="Title (required)"
                 onChange={this.handleInputChange}
               />
-              <FormBtn onClick={this.handleSearchEvent}>
-                Search for Book
-              </FormBtn>
+              <FormBtn onClick={this.handleSearchEvent}>Search</FormBtn>
             </form>
           </FormWrapper>
-          <br></br>
-          <br></br>
-          <br></br>
+
           {this.state.searchedBooks.map(book => (
             <SearchedBook
               // this book id is from Google Books search result
               key={book.id}
               bookId={book.id}
               title={book.volumeInfo.title ? book.volumeInfo.title : ""}
-              authors={book.volumeInfo.authors ? book.volumeInfo.authors : []}
+              authors={
+                book.volumeInfo.authors
+                  ? book.volumeInfo.authors
+                  : "No author(s) found"
+              }
               description={
                 book.volumeInfo.description ? book.volumeInfo.description : ""
               }
@@ -93,6 +93,14 @@ class Books extends Component {
                   ? book.volumeInfo.imageLinks.thumbnail
                   : noBookImage
               }
+              infoLink={
+                book.volumeInfo.previewLink ? book.volumeInfo.previewLink : ""
+              }
+              rating={
+                book.volumeInfo.averageRating
+                  ? book.volumeInfo.averageRating
+                  : 0
+              }
               handleSaveEvent={this.handleSaveEvent}
             />
           ))}
@@ -104,12 +112,14 @@ class Books extends Component {
               key={book._id}
               bookId={book._id}
               title={book.title ? book.title : "No title"}
-              authors={book.authors ? book.authors : "No authors(s)"}
+              authors={book.authors ? book.authors : "No authors(s) found"}
               description={
                 book.description ? book.description : "No description"
               }
               ISBN={book.ISBN ? book.ISBN : "No ISBN"}
               imageLink={book.imageLink ? book.imageLink : noBookImage}
+              infoLink={book.infoLink ? book.infoLink : ""}
+              rating={book.rating ? book.rating : 0}
               handleDelete={this.handleDelete}
             />
           ))}

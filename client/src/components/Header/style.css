@@ -2,10 +2,20 @@
   display: grid;
   grid-column: span 12;
   grid-row: header;
-  background: blue;
+  background: #efe9cc;
 }
 .header {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.header > h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 32px;
+  color: #1e1d1a;
+}
+.header-border {
+  border-bottom: 1px solid #3c3a333a;
+  width: 75%;
+  margin: auto;
 }

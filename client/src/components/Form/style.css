@@ -1,10 +1,31 @@
 .input {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex: 50%;
+  width: 50%;
+  margin: 3px;
+  background-color: #efe9cc;
+  font-family: "spectral";
 }
 .submitButton {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 25%;
+  padding: 4px;
+  border-radius: 4px;
+  color: #17252a;
+  border: 1px solid #262636;
+  background-color: #efe9cc;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.15s ease-in-out;
+  font-family: "Spectral", sans-serif;
+  font-size: 16px;
+  letter-spacing: 1px;
+  line-height: 1.1;
+  margin: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.submitButton:hover {
+  color: black;
+  background-color: #ccefd8;
 }

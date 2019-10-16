@@ -1,7 +1,7 @@
 .wrapper {
   min-height: 100vh;
-  background-color: #bbbbbb;
+  background-color: #eadea6;
   display: grid;
   grid-template-columns: [leftGutter] 1fr [searchedBooks] 5fr [savedBooks] 5fr [rightGutter] 1fr;
-  grid-template-rows: [header] 150px [body] 1fr [footer] 100px;
+  grid-template-rows: [header] 150px [subHeader] 100px [body] 1fr [footer] 100px;
 }

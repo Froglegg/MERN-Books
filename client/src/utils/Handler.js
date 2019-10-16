@@ -62,7 +62,13 @@ export default {
         : "no isbn",
       imageLink: bookObj.volumeInfo.imageLinks
         ? bookObj.volumeInfo.imageLinks.thumbnail
-        : noBookImage
+        : noBookImage,
+      infoLink: bookObj.volumeInfo.previewLink
+        ? bookObj.volumeInfo.previewLink
+        : "",
+      rating: bookObj.volumeInfo.averageRating
+        ? bookObj.volumeInfo.averageRating
+        : "Not rated"
     };
 
     API.saveBook(bookData)

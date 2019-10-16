@@ -1,7 +1,10 @@
 .searchedBookWrapper {
+  height: 100vh;
+  overflow: auto;
   display: grid;
   grid-column: searchedBooks;
   grid-row: body;
+  border-right: 1px solid #3c3a333a;
 }
 .searchedBookWrapper h2 {
   text-align: center;

@@ -3,12 +3,7 @@ import React from "react";
 import "./style.css";
 
 function SearchedBookWrapper(props) {
-  return (
-    <div className="searchedBookWrapper">
-      <h2>Search Results</h2>
-      {props.children}
-    </div>
-  );
+  return <div className="searchedBookWrapper">{props.children}</div>;
 }
 
 export default SearchedBookWrapper;

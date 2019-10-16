@@ -1,0 +1,30 @@
+.subWrapper {
+  display: grid;
+  grid-row: subHeader;
+  grid-column: span 10;
+  border-bottom: 2px solid #3c3a333a;
+  background-color: #efe9cc;
+}
+.sub {
+  display: flex;
+}
+.sub-header-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 50%;
+  height: 100%;
+  margin: auto;
+}
+.sub-header-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 50%;
+  height: 100%;
+  margin: auto;
+}
+.sub > h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 27px;
+}

@@ -2,10 +2,44 @@
   display: grid;
   grid-row: footer;
   grid-column: span 12;
-  background: black;
+  background: #deb881;
 }
 .footer {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.footerText {
+  font-family: "Spectral", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.1em;
+  color: #1e1d1a;
+}
+
+.footerText > a {
+  color: #efe9cc;
+  transition: all ease-in-out 0.2s;
+}
+
+.footerText > a:hover {
+  color: #ccefd8;
+}
+
+span.icons {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+span.icons > a {
+  color: #efe9cc;
+  transition: all ease-in-out 0.2s;
+}
+span.icons > a:hover {
+  color: #ccefd8;
+  transform: scale(1.1);
 }

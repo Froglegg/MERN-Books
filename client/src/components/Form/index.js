@@ -2,20 +2,12 @@ import React from "react";
 import "./style.css";
 
 export function Input(props) {
-  return (
-    <div className="input">
-      <input {...props} />
-    </div>
-  );
+  return <input className="input" {...props} />;
 }
 
 export function FormBtn(props) {
   return (
-    <button
-      {...props}
-      className="submitButton"
-      style={{ float: "right", marginBottom: 10 }}
-    >
+    <button {...props} className="submitButton">
       {props.children}
     </button>
   );

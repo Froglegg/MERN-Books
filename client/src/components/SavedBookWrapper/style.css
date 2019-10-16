@@ -1,7 +1,10 @@
 .savedBookWrapper {
+  height: 100vh;
+  overflow: auto;
   display: grid;
   grid-column: savedBooks;
   grid-row: body;
+  border-left: 1px solid #3c3a333a;
 }
 .savedBookWrapper h2 {
   text-align: center;
