@@ -19,7 +19,11 @@ const SearchedBook = props => {
       />
       <div>
         <a href={props.infoLink}>
-          <img className="bookImage" src={props.imageLink}></img>
+          <img
+            className="bookImage"
+            alt="no book cover found"
+            src={props.imageLink}
+          ></img>
         </a>
         <p className="description">
           <a href={props.infoLink}>More information</a>

@@ -6,7 +6,7 @@ import React from "react";
 const SavedBook = props => {
   return (
     <div className="bookItem">
-      <h3 className="title" data-id={props.bookId} data-ISBN={props.ISBN}>
+      <h3 className="title" data-id={props.bookId} isbn={props.isbn}>
         {props.title}
       </h3>
       <StarRatings
@@ -19,7 +19,11 @@ const SavedBook = props => {
       />
       <div>
         <a href={props.infoLink}>
-          <img className="bookImage" src={props.imageLink}></img>
+          <img
+            className="bookImage"
+            alt="no book cover found"
+            src={props.imageLink}
+          ></img>
         </a>
         <p className="description">
           <a href={props.infoLink}>More information</a>

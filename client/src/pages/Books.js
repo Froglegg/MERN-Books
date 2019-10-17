@@ -83,10 +83,10 @@ class Books extends Component {
               description={
                 book.volumeInfo.description ? book.volumeInfo.description : ""
               }
-              ISBN={
+              isbn={
                 book.volumeInfo.industryIdentifiers
                   ? book.volumeInfo.industryIdentifiers[0].identifier
-                  : "no ISBN"
+                  : "no isbn"
               }
               imageLink={
                 book.volumeInfo.imageLinks
@@ -116,7 +116,7 @@ class Books extends Component {
               description={
                 book.description ? book.description : "No description"
               }
-              ISBN={book.ISBN ? book.ISBN : "No ISBN"}
+              isbn={book.isbn ? book.isbn : "No isbn"}
               imageLink={book.imageLink ? book.imageLink : noBookImage}
               infoLink={book.infoLink ? book.infoLink : ""}
               rating={book.rating ? book.rating : 0}

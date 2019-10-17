@@ -31,10 +31,8 @@ export default {
       .then(response => {
         let array = [];
         response.data.items.forEach(book => {
-          console.log(book);
           array.push(book);
         });
-        console.log(`this is going into searchedBooks state : ${array}`);
         localState.setState({ searchedBooks: array });
       })
       .catch(err => console.log(err));

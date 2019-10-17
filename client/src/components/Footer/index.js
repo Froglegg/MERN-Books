@@ -5,13 +5,13 @@ function Footer() {
   return (
     <div className="footerWrapper">
       <footer className="footer">
-        <span class="icons">
+        <span className="icons">
           <a href="https://www.github.com/froglegg">
-            <i class="fab fa-github fa-2x" id="git-icon"></i>
+            <i className="fab fa-github fa-2x" id="git-icon"></i>
           </a>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <a href="https://www.linkedin.com/in/hayes-crowley/">
-            <i class="fab fa-linkedin-in fa-2x" id="git-icon"></i>
+            <i className="fab fa-linkedin-in fa-2x" id="git-icon"></i>
           </a>
         </span>
         <p className="footerText">
