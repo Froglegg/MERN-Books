@@ -7,7 +7,7 @@ const app = express();
 const axios = require("axios");
 //Socket IO
 const io = require("socket.io")();
-const IOPORT = process.env.PORT || 8000;
+const IOPORT = process.env.PORT || "https://the-bookster.herokuapp.com";
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -26,6 +26,7 @@ const getApiAndEmit = async socket => {
   try {
     const res = await axios.get(`/api/books`, {
       proxy: {
+        host: "localhost",
         port: PORT
       }
     });
@@ -33,7 +34,7 @@ const getApiAndEmit = async socket => {
     // let bookArray = [{}];
     let newBook = array[0];
     // array.forEach(el => bookArray.push(el));
-    // if no new book, then exit the function, else send the book
+    // if no new book, then exit the function
     if (!newBook) {
       return;
     } else {
