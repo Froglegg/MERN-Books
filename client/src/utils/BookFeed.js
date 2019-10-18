@@ -1,5 +1,5 @@
 import openSocket from "socket.io-client";
-const socket = openSocket("");
+const socket = openSocket("https://the-bookster.herokuapp.com:8000");
 
 function subscribeToBookFeed(cb) {
   socket.on("bookFeed", sendFeed => cb(null, sendFeed));
