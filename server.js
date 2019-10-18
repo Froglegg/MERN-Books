@@ -24,12 +24,6 @@ app.use(routes);
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks");
 
-//
-
-// io.on("connection", socket =>
-//   socket.emit("hello", { message: "hello from the server!" })
-// );
-
 // Send every other request to the React app
 // Define any API routes before this runs
 app.get("*", (req, res) => {
@@ -49,9 +43,7 @@ const getApiAndEmit = async socket => {
       }
     });
     let array = res.data;
-    // let bookArray = [{}];
     let newBook = array[0];
-    // array.forEach(el => bookArray.push(el));
     // if no new book, then exit the function
     if (!newBook) {
       return;
@@ -74,7 +66,6 @@ io.on("connection", socket => {
     console.log("client is subscribing to bookfeed with interval ", interval);
     setInterval(() => {
       getApiAndEmit(socket);
-      // client.emit("bookFeed", res.data.items);
     }, interval);
   });
   socket.on("disconnect", () => {

@@ -7,7 +7,6 @@ class BookFeed extends Component {
     console.log(props);
     subscribeToBookFeed((err, data) =>
       this.setState({
-        // data: data.map(el => <a href={el.infoLink}>{el.title}</a>)
         bookTitle: data.title,
         bookLink: data.infoLink
       })
