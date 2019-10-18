@@ -26,7 +26,6 @@ const getApiAndEmit = async socket => {
   try {
     const res = await axios.get(`/api/books`, {
       proxy: {
-        host: "127.0.0.1",
         port: PORT
       }
     });
@@ -34,7 +33,7 @@ const getApiAndEmit = async socket => {
     // let bookArray = [{}];
     let newBook = array[0];
     // array.forEach(el => bookArray.push(el));
-    console.log(`Here is the new book ${newBook}`);
+    // if no new book, then exit the function, else send the book
     if (!newBook) {
       return;
     } else {
