@@ -7,7 +7,7 @@ const app = express();
 const axios = require("axios");
 //Socket IO
 const io = require("socket.io")();
-// const IOPORT = process.env.IOPORT || 8000;
+const IOPORT = process.env.PORT || 8000;
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -64,8 +64,10 @@ io.on("connection", socket => {
   });
 });
 
-io.listen(PORT, (res, err) =>
-  console.log(`res is ${res} and port is ${PORT}, if error the error is ${err}`)
+io.listen(IOPORT, (res, err) =>
+  console.log(
+    `res is ${res} and port is ${IOPORT}, if error the error is ${err}`
+  )
 );
 
 // Send every other request to the React app
