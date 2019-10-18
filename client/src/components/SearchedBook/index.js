@@ -31,7 +31,7 @@ const SearchedBook = props => {
       </div>
       <p className="author">
         By&nbsp;
-        {props.authors.join(", ")}
+        {props.authors}
       </p>
       <p className="description">{props.description}</p>
       <button
