@@ -1,14 +1,10 @@
-// import openSocket from "socket.io-client";
-// const socket = openSocket("http://localhost:8000");
+import io from "socket.io-client";
+const socket = io();
 
-// function subscribeToBookFeed(cb) {
-//   socket.on("bookFeed", sendFeed => cb(null, sendFeed));
-//   socket.emit("subscribeToBookFeed", 500);
-// }
-// export { subscribeToBookFeed };
+function subscribeToBookFeed(cb) {
+  socket.on("bookFeed", sendFeed => cb(null, sendFeed));
+  socket.emit("subscribeToBookFeed", 500);
 
-// router.get("/", (req, res) => {
-//   socket.on("FromAPI", data => res.send({ response: data }));
-// });
-
-// module.exports = router;
+  //   socket.on("hello", ({ message }) => alert(message));
+}
+export { subscribeToBookFeed };
