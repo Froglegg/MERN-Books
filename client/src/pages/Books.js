@@ -8,6 +8,7 @@ import SavedBookWrapper from "../components/SavedBookWrapper";
 import SavedBook from "../components/SavedBook";
 import Handler from "../utils/Handler";
 import noBookImage from "./noBookImage.jpg";
+import API from "../utils/API";
 
 class Books extends Component {
   // Initialize this.state.books as an empty array
@@ -23,9 +24,9 @@ class Books extends Component {
   }
 
   // load saved books on component
-  componentDidUpdate() {
-    Handler.loadBooks(this);
-  }
+  // componentDidUpdate() {
+  //   Handler.loadBooks(this);
+  // }
 
   // grab input change on component, update state.
   handleInputChange = event => {
@@ -38,19 +39,17 @@ class Books extends Component {
   //handle search event, passing state from This
   handleSearchEvent = event => {
     event.preventDefault();
-    Handler.handleSearchEvent(this);
+    Handler.handleSearchEvent(this, () => Handler.loadBooks(this));
   };
 
   // handle save event, passing ID from props and state from This
   handleSaveEvent = bookId => {
-    Handler.handleSaveEvent(bookId, this, () => {
-      Handler.loadBooks(this);
-    });
+    Handler.handleSaveEvent(bookId, this, () => Handler.loadBooks(this));
   };
 
   // handle delete event, passing ID from props
   handleDelete = bookId => {
-    Handler.handleDelete(bookId);
+    Handler.handleDelete(bookId, () => Handler.loadBooks(this));
   };
 
   render() {

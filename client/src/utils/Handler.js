@@ -5,27 +5,27 @@ export default {
   // Gets all books
   resetBooks: function(state) {
     API.getSavedBooks()
-      .then(res =>
+      .then(res => {
         state.setState({
           savedBooks: res.data,
           searchedBooks: [],
           searchTitle: ""
-        })
-      )
+        });
+      })
       .catch(err => console.log(err));
   },
 
   loadBooks: function(state) {
     API.getSavedBooks()
-      .then(res =>
+      .then(res => {
         state.setState({
           savedBooks: res.data
-        })
-      )
+        });
+      })
       .catch(err => console.log(err));
   },
 
-  handleSearchEvent: function(localState) {
+  handleSearchEvent: function(localState, cb) {
     const bookTitle = localState.state.searchTitle;
     API.searchBook(bookTitle)
       .then(response => {
@@ -34,11 +34,12 @@ export default {
           array.push(book);
         });
         localState.setState({ searchedBooks: array });
+        return cb();
       })
       .catch(err => console.log(err));
   },
 
-  handleSaveEvent: function(bookId, localState) {
+  handleSaveEvent: function(bookId, localState, cb) {
     let bookObj;
     localState.state.searchedBooks.filter(book =>
       book.id === bookId
@@ -66,17 +67,23 @@ export default {
         : "",
       rating: bookObj.volumeInfo.averageRating
         ? bookObj.volumeInfo.averageRating
-        : "Not rated"
+        : 0
     };
 
     API.saveBook(bookData)
-      .then(res => console.log(res))
+      .then(res => {
+        console.log(res);
+        return cb();
+      })
       .catch(err => console.log(err));
   },
 
-  handleDelete: function(bookId) {
+  handleDelete: function(bookId, cb) {
     API.deleteBook(bookId)
-      .then(res => console.log(res))
+      .then(res => {
+        console.log(res);
+        return cb();
+      })
       .catch(err => console.log(err));
   }
 };

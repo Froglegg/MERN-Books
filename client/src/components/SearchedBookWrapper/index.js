@@ -1,5 +1,4 @@
 import React from "react";
-// import "../Wrapper/style.css";
 import "./style.css";
 
 function SearchedBookWrapper(props) {
