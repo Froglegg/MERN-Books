@@ -1,10 +1,6 @@
 import API from "./API";
 import noBookImage from "../pages/noBookImage.jpg";
-// using the socket IO function bookSaved from utility folder, running this function whenever a book is saved will emit a request to the server, which will respond with the latest book as a response. This book object gets saved to local state and then passed through props the header, where it is displayed.
-import { bookSaved } from "../utils/BookSaved";
-
 export default {
-  // Gets all books
   resetBooks: function(localState) {
     API.getSavedBooks()
       .then(res => {
@@ -15,12 +11,6 @@ export default {
         });
       })
       .catch(err => console.log(err));
-    bookSaved((err, data) => {
-      localState.setState({
-        bookTitle: data.title,
-        bookLink: data.infoLink
-      });
-    });
   },
 
   loadBooks: function(state) {
@@ -81,13 +71,6 @@ export default {
         return cb();
       })
       .catch(err => console.log(err));
-
-    bookSaved((err, data) => {
-      localState.setState({
-        bookTitle: data.title,
-        bookLink: data.infoLink
-      });
-    });
   },
 
   handleDelete: function(bookId, cb) {
@@ -96,16 +79,5 @@ export default {
         return cb();
       })
       .catch(err => console.log(err));
-  },
-
-  bookSaved: function(localState, cb) {
-    bookSaved((err, data) => {
-      alert("book saved run");
-      console.log(`data on line 100 in handler  ${data}`);
-      localState.setState({
-        bookTitle: data.title,
-        bookLink: data.infoLink
-      });
-    });
   }
 };

@@ -33,25 +33,19 @@ server.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });
 
-// two subscriptions, one that consistently sends a response from the server after an initial subscritpion (emit SubscribeToBookFeed), and the other which is event based, and sends a response after a request is emitted from clicking the save button on a book
-// let interval;
+// socket subscription sends a response from the server after an initial subscritpion (emit SubscribeToBookFeed) at an interval defined in the BookFeed utility
+let interval;
 io.on("connection", socket => {
   console.log("New client connected");
-  // if (interval) {
-  //   clearInterval(interval);
-  // }
-  // socket.on("subscribeToBookFeed", interval => {
-  //   console.log("client is subscribing to bookfeed with interval ", interval);
-  //   setInterval(() => {
-  //     sockMethods.getBookFeed(socket, PORT);
-  //   }, interval);
-  // });
-
-  socket.on("bookSaved", () => {
-    console.log("client is subscribing to bookSaved");
-    sockMethods.getBookSaved(socket, PORT);
+  if (interval) {
+    clearInterval(interval);
+  }
+  socket.on("subscribeToBookFeed", interval => {
+    console.log("client is subscribing to bookfeed with interval ", interval);
+    setInterval(() => {
+      sockMethods.getBookFeed(socket, PORT);
+    }, interval);
   });
-
   socket.on("disconnect", () => {
     console.log("Client disconnected");
   });

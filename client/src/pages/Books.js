@@ -8,8 +8,6 @@ import SavedBookWrapper from "../components/SavedBookWrapper";
 import SavedBook from "../components/SavedBook";
 import Handler from "../utils/Handler";
 import noBookImage from "./noBookImage.jpg";
-import Header from "../components/Header";
-import SubHeader from "../components/SubHeader";
 
 class Books extends Component {
   // Initialize this.state.books as an empty array
@@ -53,11 +51,6 @@ class Books extends Component {
   render() {
     return (
       <>
-        <Header
-          bookLink={this.state.bookLink}
-          bookTitle={this.state.bookTitle}
-        />
-        <SubHeader />
         <LeftGutter />
         <SearchedBookWrapper>
           <FormWrapper>

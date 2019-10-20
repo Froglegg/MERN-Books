@@ -21,25 +21,5 @@ module.exports = {
     } catch (error) {
       console.log(`Error is ${error.message} error id is ${error.id}`);
     }
-  },
-  getBookSaved: async (socket, port) => {
-    try {
-      const res = await axios.get(`/api/books`, {
-        proxy: {
-          // host: "127.0.0.1",
-          port: port
-        }
-      });
-      let array = res.data;
-      let newBook = array[0];
-      // if no new book, then exit the function
-      if (!newBook) {
-        return;
-      } else {
-        socket.emit("bookSaved", newBook);
-      }
-    } catch (error) {
-      console.log(`Error is ${error.message} error id is ${error.id}`);
-    }
   }
 };
