@@ -2,7 +2,6 @@ import "./style.css";
 import StarRatings from "react-star-ratings";
 
 import React from "react";
-import Handler from "../../utils/Handler";
 
 const SavedBook = props => {
   return (

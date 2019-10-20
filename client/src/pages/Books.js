@@ -8,25 +8,23 @@ import SavedBookWrapper from "../components/SavedBookWrapper";
 import SavedBook from "../components/SavedBook";
 import Handler from "../utils/Handler";
 import noBookImage from "./noBookImage.jpg";
-import API from "../utils/API";
+import Header from "../components/Header";
+import SubHeader from "../components/SubHeader";
 
 class Books extends Component {
   // Initialize this.state.books as an empty array
   state = {
     searchedBooks: [],
     savedBooks: [],
-    searchTitle: ""
+    searchTitle: "",
+    bookTitle: "",
+    bookLink: ""
   };
 
   // get saved books and reset search field on component did mount
   componentDidMount() {
-    Handler.resetBooks(this);
+    Handler.resetBooks(this, () => console.log("callback ran"));
   }
-
-  // load saved books on component
-  // componentDidUpdate() {
-  //   Handler.loadBooks(this);
-  // }
 
   // grab input change on component, update state.
   handleInputChange = event => {
@@ -55,6 +53,11 @@ class Books extends Component {
   render() {
     return (
       <>
+        <Header
+          bookLink={this.state.bookLink}
+          bookTitle={this.state.bookTitle}
+        />
+        <SubHeader />
         <LeftGutter />
         <SearchedBookWrapper>
           <FormWrapper>

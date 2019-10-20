@@ -3,13 +3,12 @@ const path = require("path");
 const routes = require("./routes");
 const app = express();
 const server = require("http").createServer(app);
+// socket io setup logic: an instatntiation of Express (app) is passed through an instantiaion of an http server, so that we can run socket IO in the same server instance as the app. In other words, Express and Socket IO are listening on the same server instance. See https://stackoverflow.com/questions/17696801/express-js-app-listen-vs-server-listen
 const io = require("socket.io")(server);
+// socket IO functions
+const sockMethods = require("./controllers/sockMethods");
 const PORT = process.env.PORT || 3001;
-
-const axios = require("axios");
 const mongoose = require("mongoose");
-
-// const IOPORT = process.env.PORT || 8000;
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -34,40 +33,25 @@ server.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });
 
-const getApiAndEmit = async socket => {
-  try {
-    const res = await axios.get(`/api/books`, {
-      proxy: {
-        // host: "127.0.0.1",
-        port: PORT
-      }
-    });
-    let array = res.data;
-    let newBook = array[0];
-    // if no new book, then exit the function
-    if (!newBook) {
-      return;
-    } else {
-      socket.emit("bookFeed", newBook);
-    }
-  } catch (error) {
-    console.log(`Error is ${error.message} error id is ${error.id}`);
-  }
-};
-
-let interval;
-
+// two subscriptions, one that consistently sends a response from the server after an initial subscritpion (emit SubscribeToBookFeed), and the other which is event based, and sends a response after a request is emitted from clicking the save button on a book
+// let interval;
 io.on("connection", socket => {
   console.log("New client connected");
-  if (interval) {
-    clearInterval(interval);
-  }
-  socket.on("subscribeToBookFeed", interval => {
-    console.log("client is subscribing to bookfeed with interval ", interval);
-    setInterval(() => {
-      getApiAndEmit(socket);
-    }, interval);
+  // if (interval) {
+  //   clearInterval(interval);
+  // }
+  // socket.on("subscribeToBookFeed", interval => {
+  //   console.log("client is subscribing to bookfeed with interval ", interval);
+  //   setInterval(() => {
+  //     sockMethods.getBookFeed(socket, PORT);
+  //   }, interval);
+  // });
+
+  socket.on("bookSaved", () => {
+    console.log("client is subscribing to bookSaved");
+    sockMethods.getBookSaved(socket, PORT);
   });
+
   socket.on("disconnect", () => {
     console.log("Client disconnected");
   });
